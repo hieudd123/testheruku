@@ -40,9 +40,9 @@ const mqtt = require("mqtt");
 const mqttclient = mqtt.connect("mqtt://test.mosquitto.org");
 
 mqttclient.on("connect", () => {
-  mqttclient.subscribe("#", (err) => {
+  mqttclient.subscribe("herokutest", (err) => {
     if (!err) {
-      mqttclient.publish("#", "Hello mqtt");
+      mqttclient.publish("herokutest", "Hello mqtt");
     }
   });
 });
