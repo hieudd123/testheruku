@@ -1,4 +1,4 @@
-var socket = io("http://" + location.hostname +':80');
+var socket = io("ws://" + location.hostname +':80');
 		socket.on('connect', function(){
 			console.log('Client has connected to the server!');
 		});	  
