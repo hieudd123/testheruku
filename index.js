@@ -16,7 +16,8 @@ var io = require("socket.io")(server);
 io.on('connection', (socket) => {
     console.log('New connection',socket)
     socket.on('data',(data)=>{
-       io.emit('data',data) 
+        console.log(`Clent gui`,data);
+       //io.emit('data',data) 
     });
 })
 
