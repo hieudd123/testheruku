@@ -8,6 +8,15 @@ app.get('/', function(req, res){
     });
   });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`)
+})
+
+//-------------------SOCKET IO SERVER-----------------
+const io = require('socket.io')(server)
+io.on('connection', (socket) => {
+    console.log('New connection',socket)
+    socket.on('data',(data)=>{
+       io.emit('data',data) 
+    });
 })
