@@ -1,4 +1,4 @@
-var socket = io("ws://" + location.hostname +':443');
+var socket = io();
 		socket.on('connect', function(){
 			console.log('Client has connected to the server!');
 		});	  
