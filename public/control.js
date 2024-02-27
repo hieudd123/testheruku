@@ -1,6 +1,6 @@
 var socket ;
 $( document ).ready(function() {
-    let socket = io();
+     socket = io();
 	console.log("ready");
 		//socket.on('connect', function(){
 		//	console.log('Client has connected to the server!');
