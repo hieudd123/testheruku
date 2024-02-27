@@ -5,3 +5,6 @@ var socket = io("http://" + location.hostname +':80');
 		socket.on('disconnect', function(){
 			console.log('The client has disconnected!');
 		});
+socket.on('serverdata',(data)=>{
+	console.log('serverdata',data);
+})
