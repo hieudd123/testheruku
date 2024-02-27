@@ -35,3 +35,21 @@ setInterval(()=>{
 server.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`)
 });
+// -----------MQTT-----------
+const mqtt = require("mqtt");
+const mqttclient = mqtt.connect("mqtt://test.mosquitto.org");
+
+mqttclient.on("connect", () => {
+  mqttclient.subscribe("#", (err) => {
+    if (!err) {
+      mqttclient.publish("#", "Hello mqtt");
+    }
+  });
+});
+
+mqttclient.on("message", (topic, message) => {
+  // message is Buffer
+    io.emit("serverdata",""+randomInt); 
+  console.log(message.toString());
+  //mqttclient.end();
+});
