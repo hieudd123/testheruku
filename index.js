@@ -49,7 +49,7 @@ mqttclient.on("connect", () => {
 
 mqttclient.on("message", (topic, message) => {
   // message is Buffer
-    io.emit("serverdata",""+randomInt); 
+    io.emit("serverdata",{topic:topic,message:message} ); 
   console.log(message.toString());
   //mqttclient.end();
 });
