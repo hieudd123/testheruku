@@ -40,7 +40,7 @@ const mqtt = require("mqtt");
 const mqttclient = mqtt.connect("mqtt://test.mosquitto.org");
 
 mqttclient.on("connect", () => {
-  mqttclient.subscribe("herokutest", (err) => {
+  mqttclient.subscribe("homeassistant/*", (err) => {
     if (!err) {
       mqttclient.publish("herokutest", "Hello mqtt");
     }
