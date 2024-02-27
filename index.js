@@ -17,7 +17,7 @@ io.on('connection', (socket) => {
     console.log('New connection')
     socket.on('data',(data)=>{
         console.log(`Clent gui`,data);
-       //io.emit('data',data) 
+       io.emit('data',data);
     });
      socket.on('disconnect', () => console.log('Client disconnected'));
 })
