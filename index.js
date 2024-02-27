@@ -7,13 +7,14 @@ app.get('/', function(req, res){
       domain: domain
     });
   });
-
-const server = app.listen(PORT, () => {
+var server = require("http").Server(app);
+var io = require("socket.io")(server);
+server.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`)
-})
+});
 
 //-------------------SOCKET IO SERVER-----------------
-const io = require('socket.io')(server)
+
 io.on('connection', (socket) => {
     console.log('New connection',socket)
     socket.on('data',(data)=>{
