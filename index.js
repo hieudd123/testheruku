@@ -14,7 +14,7 @@ var io = require("socket.io")(server);
 //-------------------SOCKET IO SERVER-----------------
 
 io.on('connection', (socket) => {
-    console.log('New connection',socket)
+    console.log('New connection')
     socket.on('data',(data)=>{
         console.log(`Clent gui`,data);
        //io.emit('data',data) 
@@ -26,7 +26,9 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 setInterval(()=>{
-   io.emit("serverdata",getRandomInt(10)); 
+    let randomInt = getRandomInt(10);
+    console.log("setInterval: "+randomInt);
+   io.emit("serverdata",""+randomInt); 
 },2000);
 //---------------LANG NGHE -------------
 server.listen(PORT, () => {
