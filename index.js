@@ -9,9 +9,7 @@ app.get('/', function(req, res){
   });
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
-server.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`)
-});
+
 
 //-------------------SOCKET IO SERVER-----------------
 
@@ -29,3 +27,7 @@ function getRandomInt(max) {
 setInterval(()=>{
    io.emit("serverdata",getRandomInt(10)); 
 },2000);
+//---------------LANG NGHE -------------
+server.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`)
+});
