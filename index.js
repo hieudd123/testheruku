@@ -20,3 +20,11 @@ io.on('connection', (socket) => {
        io.emit('data',data) 
     });
 })
+
+//---------------------
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+setInterval(()=>{
+   io.emit("serverdata",getRandomInt(10)); 
+},2000);
